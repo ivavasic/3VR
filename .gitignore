@@ -1,0 +1,12 @@
+# commercial sw files
+
+skin.js
+pano2vr_player.js
+pano.xml
+logs/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
