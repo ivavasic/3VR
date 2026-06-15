@@ -58,7 +58,7 @@ This public version does **not** include:
 **Additional notes**
 - `getCountryByIP.m` is included as a helper, but the IP geolocation API link should be updated before reuse.
 - Some links are hidden for privacy reasons
-- Data-related material would require additional preparation and normalization before any separate public release. **However, they can be provided upon request, subject to the approval of all four authors.**
+- Data-related material would require additional preparation and normalization before any separate public release. **However, they can be provided upon request, subject to the approval of all five authors.**
 
 
 ## Citation
