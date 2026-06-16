@@ -86,3 +86,10 @@ keywords = {User behavior, virtual reality, regions of interest, virtual museum}
 }
 ```
 
+## 🕹️ Live Demo
+
+The browser demo is available at: https://ivavasic.github.io/3VR/docs/
+
+Use `Start tracking` in the demo to begin recording viewpoint samples.
+
+This demo is not part of the paper’s core analysis workflow. It is provided as an interactive companion to visualize and understand the 3VR coordinate mapping process, and as a foundation for future extensions.
