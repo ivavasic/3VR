@@ -1,0 +1,16 @@
+{
+  "name": "3vr-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "three": "^0.165.0",
+    "vite": "^8.0.16"
+  }
+}

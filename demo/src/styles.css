@@ -1,0 +1,360 @@
+:root {
+  color-scheme: dark;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --bg: #060708;
+  --bg-soft: #0d1014;
+  --panel: #10141a;
+  --panel-2: #141922;
+  --line: #232a35;
+  --line-strong: #323b49;
+  --ink: #f3f5f7;
+  --muted: #92a0b3;
+  --accent: #f2f4f7;
+  --accent-soft: #c8d0dc;
+  --signal: #ffe66b;
+  --signal-soft: rgba(255, 230, 107, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 20%),
+    linear-gradient(180deg, #0a0c10, #050607 55%, #040505);
+  color: var(--ink);
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 12px;
+  min-height: 100vh;
+  padding: 14px;
+}
+
+.topbar,
+.toolbar,
+.pane,
+.dock-panel {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(19, 24, 31, 0.96), rgba(13, 16, 20, 0.96));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+}
+
+.topbar-copy {
+  max-width: 740px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(1.65rem, 2.4vw, 2.6rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.status-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.status-pill {
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--accent);
+  padding: 8px 10px;
+  font-size: 0.77rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.status-pill.muted {
+  color: var(--muted);
+}
+
+.toolbar {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+}
+
+.toolbar label {
+  display: grid;
+  gap: 6px;
+  min-width: 220px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+select,
+button {
+  min-height: 38px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ink);
+  padding: 8px 12px;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover:not(:disabled),
+select:hover {
+  border-color: var(--accent-soft);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+  gap: 12px;
+  min-height: 0;
+}
+
+.pane {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.pane-title,
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding: 11px 12px;
+  color: var(--muted);
+}
+
+.pane-title span,
+.panel-head span {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.79rem;
+}
+
+.viewer-surface,
+.map-surface {
+  position: relative;
+  min-height: 0;
+  background: #07090c;
+}
+
+.viewer-surface::after,
+.map-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.025)) top/100% 1px no-repeat,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent 32%, transparent 68%, rgba(255, 255, 255, 0.02));
+}
+
+.viewer-surface canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.map-surface {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.map-stage {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.map-stage img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 330px);
+  height: auto;
+  object-fit: contain;
+}
+
+.map-stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.data-dock {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.62fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+.dock-panel {
+  min-height: 0;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 12px;
+}
+
+.metric-card {
+  display: grid;
+  gap: 8px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+  padding: 12px;
+  min-height: 76px;
+}
+
+.metric-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metric-card strong {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--signal);
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+.samples-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.samples-table th,
+.samples-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.samples-table th {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.samples-table td {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.79rem;
+  color: var(--accent);
+}
+
+.samples-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.empty-row td {
+  color: var(--muted);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+@media (max-width: 1100px) {
+  .workspace,
+  .data-dock {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 10px;
+  }
+
+  .topbar {
+    flex-direction: column;
+  }
+
+  .status-group {
+    justify-content: flex-start;
+  }
+
+  .pane {
+    min-height: 400px;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

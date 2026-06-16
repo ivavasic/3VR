@@ -10,3 +10,27 @@ logs/
 Thumbs.db
 .vscode/
 .idea/
+__pycache__/
+*.pyc
+
+# Local secrets and machine-specific config
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.der
+*.secret
+*.credentials
+id_rsa
+id_rsa.pub
+config.local.*
+*.local
+
+# demo app generated files
+demo/node_modules/
+demo/dist/
+demo/backend/.venv/

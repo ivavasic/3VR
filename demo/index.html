@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3VR Coordinate Demo</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <p class="eyebrow">3VR / local demo</p>
+          <h1>Panorama Coordinate Tracker</h1>
+          <p class="subtitle">Real-time viewpoint sampling on equirectangular panoramas.</p>
+        </div>
+        <div class="status-group">
+          <span id="tracking-status" class="status-pill">Tracking idle</span>
+          <span id="backend-status" class="status-pill muted">Backend not configured</span>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="Demo controls">
+        <label>
+          Panorama
+          <select id="panorama-select"></select>
+        </label>
+        <button id="tracking-toggle" type="button">Start tracking</button>
+        <button id="clear-points" type="button">Clear points</button>
+        <button id="download-json" type="button">Download JSON</button>
+        <button id="download-csv" type="button">Download CSV</button>
+        <button id="backend-check" type="button" disabled>Check backend</button>
+      </section>
+
+      <section class="workspace" aria-label="Panorama and equirectangular tracking view">
+        <div class="pane viewer-pane">
+          <div class="pane-title">
+            <h2>Navigation panorama</h2>
+            <span id="viewer-readout">Pan 0 / Tilt 0 / FoV 50</span>
+          </div>
+          <div id="viewer" class="viewer-surface"></div>
+        </div>
+
+        <div class="pane map-pane">
+          <div class="pane-title">
+            <h2>Equirectangular coordinate map</h2>
+            <span id="sample-count">0 points</span>
+          </div>
+          <div id="map" class="map-surface">
+            <div id="map-stage" class="map-stage">
+              <img id="map-image" alt="Equirectangular panorama map" />
+              <canvas id="map-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="data-dock" aria-label="Tracked coordinates and exports">
+        <div class="dock-panel metrics-panel">
+          <div class="panel-head">
+            <h2>Current sample</h2>
+            <span id="dock-panorama">Panorama 01</span>
+          </div>
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-label">Pan</span>
+              <strong id="metric-pan">0</strong>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Tilt</span>
+              <strong id="metric-tilt">0</strong>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">FoV</span>
+              <strong id="metric-fov">50</strong>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">X / Y</span>
+              <strong id="metric-xy">0 / 0</strong>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Canvas</span>
+              <strong id="metric-canvas">0 / 0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="dock-panel table-panel">
+          <div class="panel-head">
+            <h2>Recent tracked coordinates</h2>
+            <span id="sample-total">0 stored</span>
+          </div>
+          <div class="table-wrap">
+            <table class="samples-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Pano</th>
+                  <th>Pan</th>
+                  <th>Tilt</th>
+                  <th>X</th>
+                  <th>Y</th>
+                  <th>FoV</th>
+                </tr>
+              </thead>
+              <tbody id="samples-body">
+                <tr class="empty-row">
+                  <td colspan="7">No tracked coordinates yet.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

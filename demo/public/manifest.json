@@ -1,0 +1,24 @@
+{
+  "panoramas": [
+    {
+      "id": "panorama-fribourg-street",
+      "title": "panorama-fribourg-street",
+      "src": "./panoramas/panorama-fribourg-street.jpg"
+    },
+    {
+      "id": "panorama-fribourg-bird",
+      "title": "panorama-fribourg-bird",
+      "src": "./panoramas/panorama-fribourg-bird.jpg"
+    },
+    {
+      "id": "panorama-smart-living-lab",
+      "title": "panorama-smart-living-lab",
+      "src": "./panoramas/panorama-smart-living-lab.jpg"
+    },
+    {
+      "id": "panorama-elektronische-museum",
+      "title": "panorama-elektronische-museum",
+      "src": "./panoramas/panorama-elektronische-museum.jpg"
+    }
+  ]
+}
