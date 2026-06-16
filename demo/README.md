@@ -2,6 +2,13 @@
 
 This folder contains the public demo app for the `demo-work` branch. It is separate from the paper scripts in the repository root.
 
+## 🕹️ Live Demo
+
+The browser demo is available at: https://ivavasic.github.io/3VR/docs/
+
+This demo is not part of the paper’s core analysis workflow. It is provided as an interactive companion to visualize and understand the 3VR coordinate mapping process, and as a foundation for future extensions.
+
+
 ## What Runs Where
 
 - Frontend: Vite + Three.js
